@@ -1,8 +1,8 @@
-# Aplikasi Manajemen Buku - Technical Test Fullstack Developer
+# Technical Test Fullstack Developer
 
-Aplikasi ini dikembangkan menggunakan Laravel dan Blade sebagai bagian dari **technical test Fullstack Developer**.  
-Pengguna yang sudah login dapat menambahkan, mengedit, dan menghapus koleksi buku mereka sendiri.  
-Pengunjung (guest) dapat melihat buku yang dipublikasikan oleh pengguna lain.
+Dikembangkan menggunakan Laravel dan Blade sebagai bagian dari **technical test Fullstack Developer**.  
+User yang sudah login dapat menambahkan, mengedit, dan menghapus koleksi buku mereka sendiri.  
+Pengunjung (guest) dapat melihat buku yang dipublikasikan oleh user lain.
 
 ---
 
@@ -14,26 +14,26 @@ Pengunjung (guest) dapat melihat buku yang dipublikasikan oleh pengguna lain.
 - Lupa Password & Reset Password
 - Ganti Password (melalui halaman Profil)
 
-### Manajemen Pengguna
-- Menampilkan daftar pengguna
+### Manajemen User
+- Menampilkan daftar user
 - Filter berdasarkan status verifikasi email
 - Pencarian berdasarkan nama atau email
 
 ### Manajemen Buku
 - Tambah, Lihat, Ubah, dan Hapus Buku
-- Atribut buku: Judul, Penulis, Deskripsi, Rating (1-5), dan Thumbnail (gambar)
-- Hanya pemilik buku yang dapat mengedit/menghapus
+- Atribut buku: Judul, Author, Deskripsi, Rating (1-5), dan Thumbnail (gambar)
+- Hanya user pemilik buku yang dapat mengedit/menghapus
 - Filter buku berdasarkan:
   - Judul
-  - Penulis
+  - Author
   - Rating
-  - Tanggal Upload
-- Pagination (dengan query tetap saat filter)
+  - Tanggal Upload Buku
+- Pagination
 
 ### Halaman Landing (Guest)
-- Menampilkan buku yang diunggah oleh pengguna
-- Fitur filter: Penulis, Rating, Tanggal Upload
-- Terdapat pagination
+- Menampilkan buku yang diunggah oleh user
+- Fitur filter: Author, Rating, Tanggal Upload
+- Pagination
 
 ### Pengujian
 - Unit Test untuk autentikasi dan logika buku
@@ -41,7 +41,7 @@ Pengunjung (guest) dapat melihat buku yang dipublikasikan oleh pengguna lain.
   - Login & Register
   - Verifikasi Email
   - CRUD Buku
-  - Edit Profil
+  - Edit Profile
   - Reset Password
 
 ---
@@ -50,33 +50,33 @@ Pengunjung (guest) dapat melihat buku yang dipublikasikan oleh pengguna lain.
 
 - **Laravel 12** – PHP Framework
 - **Blade** – Templating engine
-- **Tailwind CSS** – Utility-first CSS
 - **PostgreSQL** – Database
 - **Bcrypt** – Password hashing
-- **Laravel Breeze** – Authentication scaffolding
 - **PHPUnit** – Testing
+- **Tailwind CSS** – Utility-first CSS
+- **Laravel Breeze** – Authentication scaffolding
 
 ---
 
-## Library Pihak Ketiga
+## Library
 
 ### 1. Laravel Breeze
 Digunakan untuk proses autentikasi (register, login, lupa password, dan verifikasi email).  
-Dipilih karena ringan dan mengikuti struktur Laravel terbaru.
+Dipilih karena ringan dan setup cepat untuk mengejar waktu deadline.
 
 ### 2. Tailwind CSS
-Digunakan untuk styling halaman dengan cepat dan responsif tanpa perlu banyak CSS kustom.
+Digunakan untuk styling halaman dengan cepat tanpa perlu banyak CSS kustom.
 
 ---
 
 ## Fitur Tambahan (di luar permintaan)
 
-- Preview thumbnail saat upload & pada daftar buku
+- Preview thumbnail upload & pada daftar buku
 - Konfirmasi sebelum hapus buku
-- Penghapusan file otomatis saat buku dihapus
+- Penghapusan file saat buku dihapus
 - Layout responsif untuk mobile
-- Format tanggal yang rapi (mis. `23 Jun 2025`)
-- Query filter tetap saat pagination (`appends()`)
+- Format tanggal (mis. `23 Jun 2025`)
+- Pagination
 
 ---
 
@@ -87,17 +87,15 @@ Digunakan untuk styling halaman dengan cepat dan responsif tanpa perlu banyak CS
 git clone https://github.com/nayasyaula/naya_fdtest.git
 cd naya_fdtest
 
-# Install dependency backend
+# Install dependency
 composer install
-
-# Install dependency frontend
 npm install && npm run build
 
-# Salin file .env dan buat APP_KEY
+# Copy file .env dan buat APP_KEY
 cp .env.example .env
 php artisan key:generate
 
-# Atur konfigurasi database PostgreSQL di .env
+# Konfigurasi database PostgreSQL di .env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
