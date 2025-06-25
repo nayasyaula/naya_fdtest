@@ -90,7 +90,7 @@ cd naya_fdtest
 2. **Install dependency**
 ```bash
 composer install
-npm install && npm run build
+npm install && npm run dev
 ```
 4. **Copy file .env dan buat APP_KEY**
 ```bash
