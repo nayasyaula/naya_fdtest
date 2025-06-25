@@ -81,7 +81,6 @@ Digunakan untuk styling halaman dengan cepat tanpa perlu banyak CSS kustom.
 ---
 
 ## Langkah Instalasi
-Ikuti langkah-langkah berikut untuk menjalankan web ini di komputer Anda:
 
 1. **Clone repository**
 ```bash
