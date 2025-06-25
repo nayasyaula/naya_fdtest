@@ -1,44 +1,46 @@
-# 📚 Naya FD Test - Book Management App
+# Naya FD Test - Aplikasi Manajemen Buku
 
-A Laravel-based book management system developed as a **Fullstack Developer Technical Test**.  
-Authenticated users can manage their personal book collection and guests can browse public books.  
-Includes full authentication flow, email verification, filtering, and secure CRUD operations.
+Sistem manajemen buku berbasis Laravel yang dikembangkan sebagai **Uji Teknis Pengembang Fullstack**.
+
+Pengguna yang diautentikasi dapat mengelola koleksi buku pribadi mereka dan tamu dapat menelusuri buku publik.
+
+Mencakup alur autentikasi lengkap, verifikasi email, pemfilteran, dan operasi CRUD yang aman.
 
 ---
 
-## 🧩 Features
+## Fitur
 
-### 🔐 Authentication
-- Register, Login, Logout
-- Email Verification
-- Forgot Password / Reset
-- Change Password (via Profile)
+### Autentikasi
+- Daftar, Masuk, Keluar
+- Verifikasi Email
+- Lupa Kata Sandi / Atur Ulang
+- Ubah Kata Sandi (melalui Profil)
 
-### 👤 User Management
-- View list of users
-- Filter by email verification status
-- Search by name or email
+### Manajemen Pengguna
+- Lihat daftar pengguna
+- Filter berdasarkan status verifikasi email
+- Cari berdasarkan nama atau email
 
-### 📚 Book Management
-- CRUD book data (title, author, description, rating, thumbnail)
-- Only book owners can edit/delete
-- File cleanup on delete
-- Filtering by:
-  - Title
-  - Author
-  - Rating
-  - Upload date
-- Pagination with persistent query
+### Manajemen Buku
+- Data buku CRUD (judul, penulis, deskripsi, peringkat, gambar mini)
+- Hanya pemilik buku yang dapat mengedit/menghapus
+- Pembersihan file saat dihapus
+- Pemfilteran berdasarkan:
+- Judul
+- Penulis
+- Peringkat
+- Tanggal unggah
+- Paginasi dengan kueri persisten
 
-### 🌐 Landing Page (Guest)
-- View uploaded books
-- Filter books by:
-  - Author
-  - Upload Date
-  - Rating
-- Pagination included
+### Landing Page (Guest)
+- Lihat buku yang diunggah
+- Filter buku berdasarkan:
+- Penulis
+- Tanggal Unggah
+- Peringkat
+- Paginasi disertakan
 
-### 🧪 Tests
+### Pengujian
 - Unit Tests for authentication and book logic
 - Feature/Integration Tests for:
   - Auth (login, register, password reset, etc.)
@@ -50,7 +52,7 @@ Includes full authentication flow, email verification, filtering, and secure CRU
 
 ## 🛠 Tech Stack
 
-- **Laravel 11** – PHP Framework
+- **Laravel 12** – PHP Framework
 - **Blade** – Templating engine
 - **Tailwind CSS** – Utility-first CSS
 - **PostgreSQL** – Database
@@ -60,11 +62,11 @@ Includes full authentication flow, email verification, filtering, and secure CRU
 
 ---
 
-## 📦 Third-party Libraries Used
+## Pustaka Pihak Ketiga yang Digunakan
 
 ### 1. Laravel Breeze
 Lightweight auth scaffolding (register, login, forgot password, email verify).  
-Dipilih karena simpel dan cocok untuk Laravel 11.
+Dipilih karena simpel dan cocok untuk Laravel 12.
 
 ### 2. Tailwind CSS
 Untuk styling cepat, responsive, dan tanpa ribet.  
@@ -72,7 +74,7 @@ Meningkatkan UI development tanpa custom CSS berlebihan.
 
 ---
 
-## ➕ Additional Enhancements
+## Peningkatan Tambahan
 - Thumbnail preview saat upload dan list
 - Filter + search dengan query tetap saat pagination
 - Konfirmasi hapus buku
@@ -82,32 +84,32 @@ Meningkatkan UI development tanpa custom CSS berlebihan.
 
 ---
 
-## 🚀 Setup Instructions
+## 🚀 Petunjuk Setup
 
 ```bash
 # Clone
 git clone https://github.com/nayasyaula/naya_fdtest.git
 cd naya_fdtest
 
-# Install dependencies
+# Instal dependensi
 composer install
-npm install && npm run build
+npm instal && npm run dev
 
 # Setup environment
 cp .env.example .env
 php artisan key:generate
 
-# Edit .env for PostgreSQL
+# Edit .env untuk PostgreSQL
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=naya_fdtest
 DB_USERNAME=postgres
-DB_PASSWORD=your_password
+DB_PASSWORD=kata_sandi_Anda
 
-# Migrate & link storage
+# Migrasikan & tautkan penyimpanan
 php artisan migrate
 php artisan storage:link
 
-# Run local server
+# Jalankan server lokal
 php artisan serve
