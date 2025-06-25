@@ -81,31 +81,38 @@ Digunakan untuk styling halaman dengan cepat tanpa perlu banyak CSS kustom.
 ---
 
 ## Langkah Instalasi
+Ikuti langkah-langkah berikut untuk menjalankan web ini di komputer Anda:
 
+1. **Clone repository**
 ```bash
-# Clone repository
 git clone https://github.com/nayasyaula/naya_fdtest.git
 cd naya_fdtest
-
-# Install dependency
+```
+2. **Install dependency**
+```bash
 composer install
 npm install && npm run build
-
-# Copy file .env dan buat APP_KEY
+```
+4. **Copy file .env dan buat APP_KEY**
+```bash
 cp .env.example .env
 php artisan key:generate
-
-# Konfigurasi database PostgreSQL di .env
+```
+5. **Konfigurasi database PostgreSQL di .env**
+```bash
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=naya_fdtest
 DB_USERNAME=postgres
 DB_PASSWORD=isi_password_anda
-
-# Jalankan migrasi dan link storage
+```
+6. **Jalankan migrasi dan link storage**
+```bash
 php artisan migrate
 php artisan storage:link
-
-# Jalankan server lokal
+```
+7. **Jalankan server lokal**
+```bash
 php artisan serve
+```
