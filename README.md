@@ -1,56 +1,52 @@
-# Naya FD Test - Aplikasi Manajemen Buku
+# Aplikasi Manajemen Buku - Technical Test Fullstack Developer
 
-Sistem manajemen buku berbasis Laravel yang dikembangkan sebagai **Uji Teknis Pengembang Fullstack**.
-
-Pengguna yang diautentikasi dapat mengelola koleksi buku pribadi mereka dan tamu dapat menelusuri buku publik.
-
-Mencakup alur autentikasi lengkap, verifikasi email, pemfilteran, dan operasi CRUD yang aman.
+Aplikasi ini dikembangkan menggunakan Laravel dan Blade sebagai bagian dari **technical test Fullstack Developer**.  
+Pengguna yang sudah login dapat menambahkan, mengedit, dan menghapus koleksi buku mereka sendiri.  
+Pengunjung (guest) dapat melihat buku yang dipublikasikan oleh pengguna lain.
 
 ---
 
-## Fitur
+## Fitur Utama
 
 ### Autentikasi
-- Daftar, Masuk, Keluar
+- Registrasi, Login, Logout
 - Verifikasi Email
-- Lupa Kata Sandi / Atur Ulang
-- Ubah Kata Sandi (melalui Profil)
+- Lupa Password & Reset Password
+- Ganti Password (melalui halaman Profil)
 
 ### Manajemen Pengguna
-- Lihat daftar pengguna
+- Menampilkan daftar pengguna
 - Filter berdasarkan status verifikasi email
-- Cari berdasarkan nama atau email
+- Pencarian berdasarkan nama atau email
 
 ### Manajemen Buku
-- Data buku CRUD (judul, penulis, deskripsi, peringkat, gambar mini)
+- Tambah, Lihat, Ubah, dan Hapus Buku
+- Atribut buku: Judul, Penulis, Deskripsi, Rating (1-5), dan Thumbnail (gambar)
 - Hanya pemilik buku yang dapat mengedit/menghapus
-- Pembersihan file saat dihapus
-- Pemfilteran berdasarkan:
-- Judul
-- Penulis
-- Peringkat
-- Tanggal unggah
-- Paginasi dengan kueri persisten
-
-### Landing Page (Guest)
-- Lihat buku yang diunggah
 - Filter buku berdasarkan:
-- Penulis
-- Tanggal Unggah
-- Peringkat
-- Paginasi disertakan
+  - Judul
+  - Penulis
+  - Rating
+  - Tanggal Upload
+- Pagination (dengan query tetap saat filter)
+
+### Halaman Landing (Guest)
+- Menampilkan buku yang diunggah oleh pengguna
+- Fitur filter: Penulis, Rating, Tanggal Upload
+- Terdapat pagination
 
 ### Pengujian
-- Unit Tests for authentication and book logic
-- Feature/Integration Tests for:
-  - Auth (login, register, password reset, etc.)
-  - Book creation/update
-  - Profile editing
-  - Email verification
+- Unit Test untuk autentikasi dan logika buku
+- Feature Test untuk:
+  - Login & Register
+  - Verifikasi Email
+  - CRUD Buku
+  - Edit Profil
+  - Reset Password
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Laravel 12** – PHP Framework
 - **Blade** – Templating engine
@@ -62,52 +58,54 @@ Mencakup alur autentikasi lengkap, verifikasi email, pemfilteran, dan operasi CR
 
 ---
 
-## Pustaka Pihak Ketiga yang Digunakan
+## Library Pihak Ketiga
 
 ### 1. Laravel Breeze
-Lightweight auth scaffolding (register, login, forgot password, email verify).  
-Dipilih karena simpel dan cocok untuk Laravel 12.
+Digunakan untuk proses autentikasi (register, login, lupa password, dan verifikasi email).  
+Dipilih karena ringan dan mengikuti struktur Laravel terbaru.
 
 ### 2. Tailwind CSS
-Untuk styling cepat, responsive, dan tanpa ribet.  
-Meningkatkan UI development tanpa custom CSS berlebihan.
+Digunakan untuk styling halaman dengan cepat dan responsif tanpa perlu banyak CSS kustom.
 
 ---
 
-## Peningkatan Tambahan
-- Thumbnail preview saat upload dan list
-- Filter + search dengan query tetap saat pagination
-- Konfirmasi hapus buku
-- Responsive mobile layout
-- Formatting tanggal (e.g., `23 Jun 2025`)
-- Auto delete file dari storage saat buku dihapus
+## Fitur Tambahan (di luar permintaan)
+
+- Preview thumbnail saat upload & pada daftar buku
+- Konfirmasi sebelum hapus buku
+- Penghapusan file otomatis saat buku dihapus
+- Layout responsif untuk mobile
+- Format tanggal yang rapi (mis. `23 Jun 2025`)
+- Query filter tetap saat pagination (`appends()`)
 
 ---
 
-## 🚀 Petunjuk Setup
+## Langkah Instalasi
 
 ```bash
-# Clone
+# Clone repository
 git clone https://github.com/nayasyaula/naya_fdtest.git
 cd naya_fdtest
 
-# Instal dependensi
+# Install dependency backend
 composer install
-npm instal && npm run dev
 
-# Setup environment
+# Install dependency frontend
+npm install && npm run build
+
+# Salin file .env dan buat APP_KEY
 cp .env.example .env
 php artisan key:generate
 
-# Edit .env untuk PostgreSQL
+# Atur konfigurasi database PostgreSQL di .env
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=naya_fdtest
 DB_USERNAME=postgres
-DB_PASSWORD=kata_sandi_Anda
+DB_PASSWORD=isi_password_anda
 
-# Migrasikan & tautkan penyimpanan
+# Jalankan migrasi dan link storage
 php artisan migrate
 php artisan storage:link
 
